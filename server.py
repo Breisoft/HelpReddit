@@ -24,10 +24,10 @@ class Socket():
 						
 						await self.client_handler.process_message_received(websocket, message)
 						
+												
+						client.run_loop()
 						
 						queue = client.get_queue_and_clear()
-						
-						client.run_loop()
 						
 						for message in queue:
 								await websocket.send(message)
